@@ -7,10 +7,11 @@ from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
 
-if models._type == "db":
+if isinstance(models.storage, DBStorage):
     Base = declarative_base()
 else:
     Base = object
+
 
 
 class BaseModel:
